@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "author": "Angel Velasquez",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-v1", "id": "esp", "top": -79.52, "left": -52.8, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd",
+      "top": -281.6,
+      "left": 92,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "northCornerPir",
+      "top": 292,
+      "left": 165.42,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "southCornerPir",
+      "top": 292,
+      "left": 299.82,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "westCornerPir",
+      "top": 292,
+      "left": 415.02,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "eastCornerPir",
+      "top": 292,
+      "left": 530.22,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "northCornerLed",
+      "top": 130.8,
+      "left": 186.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "southCornerLed",
+      "top": 140.4,
+      "left": 320.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "westCornerLed",
+      "top": 140.4,
+      "left": 445.4,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "eastCornerLed",
+      "top": 140.4,
+      "left": 560.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 206.4,
+      "left": 172.25,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 216,
+      "left": 316.25,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 216,
+      "left": 441.05,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": 216,
+      "left": 556.25,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "lcd:GND", "esp:GND.2", "black", [ "h-230.4", "v19.2" ] ],
+    [ "lcd:VCC", "esp:VIN", "red", [ "h-211.2", "v9.7" ] ],
+    [ "lcd:SDA", "esp:D21", "gold", [ "h-19.2", "v192.2" ] ],
+    [ "lcd:SCL", "esp:D22", "limegreen", [ "h-28.8", "v173.1" ] ],
+    [ "northCornerLed:A", "esp:D5", "blue", [ "v9.6", "h19.2", "v-172.8" ] ],
+    [ "r1:2", "esp:GND.1", "black", [ "h-124.8", "v-174" ] ],
+    [ "r2:2", "esp:GND.1", "black", [ "h-268.8", "v-193.2" ] ],
+    [ "r3:2", "esp:GND.1", "black", [ "h-393.6", "v-193.2" ] ],
+    [ "r4:2", "esp:GND.1", "black", [ "v-1.2", "h-508.8", "v-192" ] ],
+    [ "esp:D27", "southCornerLed:A", "blue", [ "h-19.2", "v105.6", "h441.6", "v48" ] ],
+    [ "westCornerLed:A", "esp:D33", "blue", [ "h19.2", "v-48", "h-556.8", "v-134.4" ] ],
+    [ "eastCornerLed:A", "esp:D19", "blue", [ "h38.4", "v-48", "v-144" ] ],
+    [ "northCornerPir:GND", "esp:GND.1", "black", [ "v28.8", "h-144.26", "v-345.6" ] ],
+    [ "southCornerPir:GND", "esp:GND.1", "black", [ "v28.8", "h-278.66", "v-345.6" ] ],
+    [ "westCornerPir:GND", "esp:GND.1", "black", [ "v28.8", "h-393.86", "v-345.6" ] ],
+    [ "eastCornerPir:GND", "esp:GND.1", "black", [ "v28.8", "h-509.06", "v-345.6" ] ],
+    [ "northCornerPir:VCC", "esp:3V3", "red", [ "v38.4", "h-134.4", "v-345.6" ] ],
+    [ "southCornerPir:VCC", "esp:3V3", "red", [ "v38.4", "h-268.8", "v-345.6", "h-18.71" ] ],
+    [ "westCornerPir:VCC", "esp:3V3", "red", [ "v38.4", "h-384", "v-182.4", "v-163.2" ] ],
+    [ "eastCornerPir:VCC", "esp:3V3", "red", [ "v38.4", "h-499.2", "v-249.6" ] ],
+    [ "northCornerPir:OUT", "esp:D4", "green", [ "v19.2", "h-124.94", "v-364.8", "h9.6" ] ],
+    [ "eastCornerPir:OUT", "esp:D18", "green", [ "v19.2", "h-489.74", "v-403.2", "h-37.91" ] ],
+    [
+      "westCornerPir:OUT",
+      "esp:D32",
+      "green",
+      [ "v19.2", "h-374.54", "v-240", "h-163.2", "v-172.8" ]
+    ],
+    [
+      "southCornerPir:OUT",
+      "esp:D26",
+      "green",
+      [ "v19.2", "h-259.34", "v-240", "h-163.2", "v-144" ]
+    ],
+    [ "northCornerLed:C", "r1:1", "black", [ "v9.6", "h0.4", "v19.2", "v-19.2" ] ],
+    [ "eastCornerLed:C", "r4:1", "black", [ "v9.6", "h-66.8", "h67.2", "v172.8" ] ],
+    [ "southCornerLed:C", "r2:1", "black", [ "v9.6", "h-66.8", "h9.6" ] ],
+    [ "westCornerLed:C", "r3:1", "black", [ "v9.6", "h-66.8" ] ]
+  ],
+  "dependencies": {}
+}
